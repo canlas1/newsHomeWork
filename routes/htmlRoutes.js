@@ -6,16 +6,15 @@ const Article = require("../models/Article.js");
 // =============================================================
 module.exports = function(app) {
 
-		//Load homepage
-		app.get("/", function(req, res) {
-       Article.find({}, function(error, doc) {
-            doc = doc.slice(0,20);
-            
+    //Load homepage
+    app.get("/", function(req, res) {
+        Article.find({}, function(error, doc) {
+            doc = doc.slice(0, 20);
+
             // Log any errors
             if (error) {
                 console.log(error);
-            }
-            else {
+            } else {
                 let hbsObject = {
                     articles: doc
                 }
@@ -23,8 +22,6 @@ module.exports = function(app) {
                 res.render("index", hbsObject);
             }
         });
-
-        
     });
 
     // This will get the articles we scraped from the mongoDB

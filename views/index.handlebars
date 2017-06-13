@@ -1,37 +1,39 @@
-  <h1>NY Times Tech Articles!</h1>
-<div class="row">
-{{#each articles}}
-
-  <div class='fixedHeight col-xs-4'>
-    <div>
-     <h3>{{this.title}}</h3>
-    </div> 
-    <div>
-     <h4><p><a href="{{this.link}}">Follow link here</a></p></h4>
-    </div><br>
-    <div class="commentBox">
-    <p>Comments:</p>
-    <ul>
-    {{#each comment}}
-      <div id="noteBox">
-      {{!-- {{this}}
-      {{this._id}}
-      {{this.title}} --}}
-      {{this.body}}
-      {{!-- <br><li class="li">{{this.title}}</li>
-      <br><button action="/comments/delete/:id" type="Delete" class="deleteButton">Delete Comment</button><br><br><br> --}}
-      {{!-- <li>{{body}}</li> --}}
-      </div>
+<h1>Scraping NY Times Tech Articles and Storing in MongoDB !</h1>
+<div class="row" class="well">
+    <br>
+    <br> {{#each articles}}
+    <div class='col-sm-8'>
+        <div>
+            <h3> <small>Article Title: </small><i><b>{{this.title}}</b></i></h3>
+        </div>
+        <h4><small>Click Here: <a href="{{this.link}}">Follow link here</a></small></h4>
+        <div class="commentBox">
+            <ul>
+                {{#each comment}}
+                <div id="noteBox">
+                    {{!-- {{this}} {{this._id}} {{this.title}} --}} {{this.body}} {{!--
+                    <br>
+                    <li class="li">{{this.title}}</li>
+                    <br>
+                    <button action="/comments/delete/:id" type="Delete" class="deleteButton">Delete Comment</button>
+                    <br>
+                    <br>
+                    <br> --}} {{!--
+                    <li>{{body}}</li> --}}
+                </div>
+                {{/each}}
+            </ul>
+        </div>
+        <form action="/articles/comment/{{this._id}}" method="POST">
+            <label for="usr">Name:</label>
+            <input type="text" class="form-control" id="usr" placeholder="Username Here!" name="title">
+            <label for="comment">Comment:</label>
+            <textarea class="form-control" rows="5" placeholder="Comments Here!" id="comment" class="input" name="body"></textarea>
+            <br>
+            <input type="submit" class="btn btn-primary btn-block" class="commentButton"></input>
+        </form>
+        <br>
+        <br>
+    </div>
     {{/each}}
-    </ul>
-    </div><br>
-      <form action="/articles/comment/{{this._id}}" method="POST" >
-        <input placeholder="Type a comment!" type="text" name="title" class="input" required><br>
-        <input type="text" name="body" class="input" required><br>        
-        <br><input type="submit" class="commentButton"></input>          
-      </form>
-  </div>
-
-
-{{/each}}
 </div>
