@@ -1,3 +1,5 @@
+var authController = require('../controllers/authcontroller.js');
+
 var express = require('express');
 var router = express.Router();
 
