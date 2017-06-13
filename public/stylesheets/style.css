@@ -1,5 +1,15 @@
 body {
-    background-color: #F2F6D0
+    background-image: url(../images/newYorkTimesBuilding.jpg);
+    /*background-repeat: no-repeat;*/
+    background-position: center;
+    background-size: 100%;
+    /*background-color: #F2F6D0
+*/
+}
+
+h2{
+    background-position: center;
+    
 }
 
 #wrapper {
