@@ -63,13 +63,13 @@ app.post("/articles/comment/:id", function(req, res) {
         // Create a new comment and pass the req.body to the entry
         var newComment = new Comment(req.body);
         console.log("========================")
-        console.log("This is the mother fucking comment")
+        console.log("This is the comment")
         console.log(newComment);
 
 
         // And save the new comment the db
         newComment.save(function(error, doc) {
-            console.log("This is the motherfucking doc")
+            console.log("This is the doc")
             console.log(doc)
             console.log("=======================")
             // Log any errors
@@ -82,7 +82,7 @@ app.post("/articles/comment/:id", function(req, res) {
                 Article.findOneAndUpdate({ "_id": req.params.id }, { "comment": doc})
                     // Execute the above query
                     .exec(function(err, doc) {
-                        console.log("This is the motherfucking doc")
+                        console.log("This is the doc")
                         console.log(doc);
 
                         // Log any errors
